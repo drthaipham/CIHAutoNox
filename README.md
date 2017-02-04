@@ -30,7 +30,7 @@ This version of the skin contains all the GUI within an 800/820 pixel height.
 
 2) Goto Addons, "Install from Zip" and install the two zip files
 
-3) Install the Kodi Callbacks addon. http://kodi.wiki/view/Add-on:Kodi_Callbacks
+3) Install the Kodi Callbacks addon. http://kodi.wiki/view/Add-on:Kodi_Callbacks<br>
     Available through the official repo (isengard forward) as of 22-04-2016
 
 4) Configuring KodiCallBacks:
@@ -59,11 +59,11 @@ the associated activity.
 ********************************
 ** Changing the Masking sizes **
 ********************************
-custom_1131_ScopeBars133.xml - contains the mask for 133 aspect ratio
-custom_1132_ScopeBars235.xml - contains the mask for 235 aspect ratio
-custom_1133_ScopeBars200.xml - contains the mask for 200 aspect ratio
-custom_1134_ScopeBars185.xml - contains the mask for 185 aspect ratio.
-16:9 obviously does not need masking as it is the whole panel size.
+custom_1131_ScopeBars133.xml - contains the mask for 133 aspect ratio<br>
+custom_1132_ScopeBars235.xml - contains the mask for 235 aspect ratio<br>
+custom_1133_ScopeBars200.xml - contains the mask for 200 aspect ratio<br>
+custom_1134_ScopeBars185.xml - contains the mask for 185 aspect ratio.<br>
+16:9 obviously does not need masking as it is the whole panel size.<br>
 
 *************************
 ** Other files of note **
