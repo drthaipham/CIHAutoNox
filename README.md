@@ -24,21 +24,21 @@ This version of the skin contains all the GUI within an 800/820 pixel height.
 ** Installation and Use **
 **************************
 
-1) Download the zip files to the Kodi device.
-    a) script.cihautonox.tools.zip
-    b) skin.cihautonox.1.0.zip 
-
-2) Goto Addons, "Install from Zip" and install the two zip files
-
+1) Download the zip files to the Kodi device.<br>
+    a) script.cihautonox.tools.zip<br>
+    b) skin.cihautonox.1.0.zip <br>
+<br>
+2) Goto Addons, "Install from Zip" and install the two zip files<br>
+<br>
 3) Install the Kodi Callbacks addon. http://kodi.wiki/view/Add-on:Kodi_Callbacks<br>
-    Available through the official repo (isengard forward) as of 22-04-2016
-
-4) Configuring KodiCallBacks:
-    Task 1: builtin - RunScript(script.cihautonox.tools,autoaspect)
-    Task 2: buitin - RunScript(script.cihautonox.tools,133stop)
-    Event 1: On PlaybackStarted - Task1
-    Event 2: On PlaybackStopped - Task2 (so we can remove the 1.33 side masks for the gui)
-
+    Available through the official repo (isengard forward) as of 22-04-2016<br>
+<br>
+4) Configuring KodiCallBacks:<br>
+    Task 1: builtin - RunScript(script.cihautonox.tools,autoaspect)<br>
+    Task 2: buitin - RunScript(script.cihautonox.tools,133stop)<br>
+    Event 1: On PlaybackStarted - Task1<br>
+    Event 2: On PlaybackStopped - Task2 (so we can remove the 1.33 side masks for the gui)<br>
+<br>
 5) Play a file and (hopefully) watch the magic happens.
 
 ***********************************************************************
