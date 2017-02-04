@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window id="1132" type="dialog">
+	<zorder>10</zorder>
+	<visible>[!Skin.HasSetting(DebugInfo) + [[Skin.HasSetting(ARmask) + Skin.HasSetting(osd235) + Window.IsVisible(FullScreenVideo)]]]</visible>
+    <controls>
+        <control type="image">
+			<left>0</left>
+			<top>0</top>
+			<animation effect="slide" start="0,-10" end="0,0" time="700" condition="Skin.HasSetting(osd235)">Conditional</animation>
+			<width>1920</width>
+			<height>132</height>
+			<texture>black.png</texture>
+		</control>
+		<control type="image" zorder="0">
+			<left>0</left>
+			<top>948</top>
+			<animation effect="slide" start="0,10" end="0,0" time="700" condition="Skin.HasSetting(osd235)">Conditional</animation>
+			<width>1920</width>
+			<height>132</height>
+			<texture>black.png</texture>
+		</control>
+    </controls>
+</window>

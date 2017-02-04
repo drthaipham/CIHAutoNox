@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon
+  id="skin.cihautonox.1.0"
+  version="1.0"
+  name="CIHAuto Nox"
+  provider-name="thai pham">
+	<requires>
+        <import addon="xbmc.gui" version="5.10.0"/>
+		<import addon="script.grab.fanart" version="0.12.8"/>
+		<import addon="script.skinshortcuts" version="0.2.4"/>
+		<import addon="service.library.data.provider" version="0.0.1"/>
+	</requires>
+	<extension
+	  point="xbmc.gui.skin"
+	  debugging="false"
+	  effectslowdown="0.75">
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="scopeformat" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="de">CIHAuto Nox</summary>
+		<summary lang="el">CIHAuto Nox</summary>
+		<summary lang="en">CIHAuto Nox : Modded Funkd's' Scope Nox by Thai Pham with AutoAspectRatio detection, OSD Placement changes with AR.</summary>
+		<summary lang="en_AU">CIHAuto Nox</summary>
+		<summary lang="en_NZ">CIHAuto Nox</summary>
+		<summary lang="en_US">CIHAuto Nox</summary>
+		<summary lang="es">CIHAuto Nox</summary>
+		<summary lang="fi">CIHAuto Nox</summary>
+		<summary lang="fr">CIHAuto Nox</summary>
+		<summary lang="fr_CA">CIHAuto Nox</summary>
+		<summary lang="gl">CIHAuto Nox</summary>
+		<summary lang="he">CIHAuto Nox</summary>
+		<summary lang="hu">CIHAuto Nox</summary>
+		<summary lang="is">CIHAuto Nox</summary>
+		<summary lang="it">CIHAuto Nox</summary>
+		<summary lang="ko">CIHAuto Nox</summary>
+		<summary lang="lt">CIHAuto Nox</summary>
+		<summary lang="ms">CIHAuto Nox</summary>
+		<summary lang="nl">CIHAuto Nox</summary>
+		<summary lang="no">CIHAuto Nox</summary>
+		<summary lang="pl">CIHAuto Nox</summary>
+		<summary lang="pt">CIHAuto Nox</summary>
+		<summary lang="pt_BR">CIHAuto Nox</summary>
+		<summary lang="ru">CIHAuto Nox</summary>
+		<summary lang="sk">CIHAuto Nox</summary>
+		<summary lang="sv">CIHAuto Nox</summary>
+		<summary lang="th">CIHAuto Nox</summary>
+		<summary lang="vi">CIHAuto Nox</summary>
+		<summary lang="zh">CIHAuto Nox</summary>
+		<description lang="en">CIHAutoNox: Aeon Nox in a format suitable for people using projectors and zooming for CIH. (GUI within 800-820 pixels)</description>
+		<description lang="en_AU">CIHAutoNox: Aeon Nox in a format suitable for people using projectors and zooming for CIH. (GUI within 800-820 pixels)</description>
+		<description lang="en_NZ">CIHAutoNox: Aeon Nox in a format suitable for people using projectors and zooming for CIH. (GUI within 800-820 pixels)</description>
+		<description lang="en_US">CIHAutoNox: Aeon Nox in a format suitable for people using projectors and zooming for CIH. (GUI within 800-820 pixels)</description>
+		<platform>all</platform>
+	</extension>
+</addon>
