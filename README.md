@@ -1,11 +1,14 @@
 # CIHAutoNox
 
+Tested on Kodi 16.2
+
 This is a modified version of scope nox by funkd.. which is a modified version of AeonNox by BigNoid.
 Features:
 
     - Mask (black out) areas outside of the specified aspect ratio.
     - Place the OSD and the Seekbar at the top and bottom of the screen
     - Automatically detect hardcoded black bars and calculate the aspect ratio of the playing video.
+    - Can Manually specify the aspect ratio of the playing video.
     - Aspect ratio supported: 2.35, 2.0, 1.85, 16:9, 1.33. 
     **** Requires Kodi addon KodiCallback for autoaspect ratio detection ***
     - Can be used to control/recall projector settings specific to the AR of the playing video.
@@ -16,17 +19,27 @@ Using the normal Kodi skins in this cases causes part of the skin to spill outsi
 
 This version of the skin contains all the GUI within an 800/820 pixel height. 
 
-To install simply download the zip file for and then within Kodi go to Addons and 'Install from Zip' and it should install.
-    script.cihautonox.tools.zip,
-    skin.cihautonox.1.0.zip 
 
-To use the autoaspect ratio detection: you need to install the kodi extension KodiCallbacks (under kodi repository, services)
+**************************
+** Installation and Use **
+**************************
 
-Configuring KodiCallbacks:
-Task 1: builtin - RunScript(script.cihautonox.tools,autoaspect)
-Task 2: buitin - RunScript(script.cihautonox.tools,133stop)
-Event 1: On PlaybackStarted - Task1
-Event 2: On PlaybackStopped - Task2 (so we can remove the 1.33 side masks for the gui)
+1) Download the zip files to the Kodi device.
+    a) script.cihautonox.tools.zip
+    b) skin.cihautonox.1.0.zip 
+
+2) Goto Addons, "Install from Zip" and install the two zip files
+
+3) Install the Kodi Callbacks addon. http://kodi.wiki/view/Add-on:Kodi_Callbacks
+    Available through the official repo (isengard forward) as of 22-04-2016
+
+4) Configuring KodiCallBacks:
+    Task 1: builtin - RunScript(script.cihautonox.tools,autoaspect)
+    Task 2: buitin - RunScript(script.cihautonox.tools,133stop)
+    Event 1: On PlaybackStarted - Task1
+    Event 2: On PlaybackStopped - Task2 (so we can remove the 1.33 side masks for the gui)
+
+5) Play a file and (hopefully) watch the magic happens.
 
 ***********************************************************************
 ** changing the projector zoom settings with the aspect ratio change **
