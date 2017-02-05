@@ -8,7 +8,7 @@
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<platform>all</platform>
-		<summary lang="en">ScopeNox Tools</summary>
+		<summary lang="en">CIHAutoNox Tools</summary>
 		<description lang="en">Based on ScopeNox by Funkd. Automatically detects aspect ratio of a playing video. Even if contains hard coded black bars. Only for use with CIHAutoNox. .</description>
 		<license>GNU General Public License, v2</license>
 		<language></language>
