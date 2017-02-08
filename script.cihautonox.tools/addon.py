@@ -310,7 +310,7 @@ if sys.argv[1] == 'test':
     WIN = xbmcgui.Window(10000)
     line1 = 'Calculated Aspect Ratio = ' + str(aspectratio)
     line2 = 'Player Aspect Ratio = ' + str(aspectratio2)
-    line3 = '2:1 Aspect Ratio Screen is showing : ' + str (Screen200()) + ' Testing = ' + WIN.getProperty(Screen200Property)
+    line3 = ' '
     xbmcgui.Dialog().ok(addonname,line1, line2, line3)
 
 ###################################
