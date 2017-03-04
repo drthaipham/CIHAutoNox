@@ -6,7 +6,8 @@
 	<allowoverlay>no</allowoverlay>
 	<controls>
 		<include>CommonBackground</include>
-		<include>Topbar</include>
+		<!-- tchange 1 -take out top bar -->
+		<!-- <include>Topbar</include> -->
 		<control type="group">
 			<animation effect="slide" start="0,-90" end="0,0" delay="800" time="480" condition="Window.Previous(home)">WindowOpen</animation>
 			<animation effect="slide" end="0,-90" start="0,0" time="480" condition="Window.Next(home)">WindowClose</animation>
@@ -44,13 +45,14 @@
 		</control>
 		<control type="group">
 			<left>0</left>
-			<top>128</top>
+			<top>70</top>  <!-- tmod was 128 top of left and right panel -->
 			<animation effect="slide" tween="cubic" time="720" start="0,1080" end="0,0">WindowOpen</animation>
 			<animation effect="slide" tween="cubic" time="720" end="0,1080" start="0,0">WindowClose</animation>
-			<include>SystemLeftPanel</include>
+			<!-- tmod -->
+			<include>SystemLeftPanel2</include>
 			<control type="panel" id="9000">
 				<left>82</left>
-				<top>32</top>
+				<top>80</top> <!-- tmod was 32 top of left panel menu -->
 				<width>356</width>
 				<height>720</height>
 				<onleft>60</onleft>
@@ -183,7 +185,8 @@
 				<texturesliderbar colordiffuse="55ffffff" border="1">scrollbar/texturesliderbar2.png</texturesliderbar>
 				<texturesliderbarfocus border="1">scrollbar/texturesliderbar2.png</texturesliderbarfocus>
 			</control>
-			<control type="image">
+			<!-- tmod -->
+			<!-- <control type="image">
 				<description>LOGO</description>
 				<left>82</left>
 				<top>752</top>
@@ -191,8 +194,9 @@
 				<height>120</height>
 				<aspectratio>keep</aspectratio>
 				<texture>aeon-nox-logo.png</texture>
-			</control>
-			<include>SystemRightPanel</include>
+			</control> -->
+			<!-- tmod -->
+			<include>SystemRightPanel2</include>
 			<control type="image">
 				<description>separator image</description>
 				<left>522</left>
@@ -247,7 +251,7 @@
 			</control>
 			<control type="grouplist" id="101">
 				<left>522</left>
-				<top>160</top>
+				<top>152</top> <!-- was 160 top of thumbs -->
 				<width>1316</width>
 				<height>839</height>
 				<orientation>horizontal</orientation>
@@ -259,7 +263,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,1)</onleft>
 						<onright>61</onright>
@@ -269,10 +273,10 @@
 						<focusposition>0</focusposition>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
+						<itemlayout width="187" height="282">
 							<control type="image">
-								<width>219</width>
-								<height>329</height>
+								<width>187</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -281,7 +285,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="219" height="329">
+						<focusedlayout width="187" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -290,8 +294,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>219</width>
-									<height>329</height>
+									<width>187</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -304,7 +308,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(111).ListItem.Label]</label>
@@ -314,19 +318,49 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
 							<label>$INFO[Container(111).ListItem.Property(Year),, • ]$INFO[Container(111).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+							<!-- <label>$INFO[Container(111).ListItem.Property(VideoResolution),, • ]$INFO[Container(111).ListItem.Property(Duration),, $LOCALIZE[12391]]</label> -->
 							<font>font15</font>
 							<textcolor>grey2</textcolor>
 							<textoffsetx>15</textoffsetx>
 						</control>
+						
+						<!--   graphics -->
+						
+						<control type="grouplist">
+							<left>1020</left>
+							<include>GS_Plot_top</include>
+							<width>300</width>
+							<height>116</height>
+							<align>center</align>
+							<aligny>center</aligny>
+							<itemgap>10</itemgap>
+							<orientation>horizontal</orientation>
+							<visible>Control.IsVisible(110) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
+							<control type="image">
+								<colordiffuse>grey</colordiffuse>
+								<include>MediaFlagVars</include>
+								<texture>$INFO[Container(111).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
+							</control>
+							
+							<control type="image">
+								<colordiffuse>grey</colordiffuse>
+								<include>MediaFlagVars</include>
+								<texture>$INFO[Container(111).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
+							</control>
+							
+						</control>
+						
+						<!-- end graphics -->
+						
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
-							<width>1286</width>
+							<include>GS_Plot_top</include>
+							<width>986</width><!-- decrease width to make room for graphics -->
 							<height>116</height>
 							<label>$INFO[Container(111).ListItem.Property(PlotOutline)]</label>
 							<font>font15_textbox</font>
@@ -335,8 +369,8 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
-							<width>1286</width>
+							<include>GS_Plot_top</include>
+							<width>986</width><!-- decrease width to make room for graphics -->
 							<height>116</height>
 							<label>$INFO[Container(111).ListItem.Property(Plot)]</label>
 							<font>font15_textbox</font>
@@ -347,14 +381,14 @@
 					</control>
 				</control>
 				<!-- Actors -->
-				<control type="group" id="219">
+				<control type="group" id="187">
 					<visible>Container(9000).HasFocus(11)</visible>
 					<include>SettingsFadeEffect</include>
 					<control type="panel" id="211">
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,1)</onleft>
 						<onright>61</onright>
@@ -364,10 +398,10 @@
 						<focusposition>0</focusposition>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
+						<itemlayout width="187" height="282">
 							<control type="image">
-								<width>219</width>
-								<height>329</height>
+								<width>187</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -376,7 +410,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="219" height="329">
+						<focusedlayout width="187" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -385,8 +419,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>219</width>
-									<height>329</height>
+									<width>187</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -399,7 +433,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(211).ListItem.Label]</label>
@@ -409,7 +443,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
@@ -420,7 +454,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(211).ListItem.Property(PlotOutline)]</label>
@@ -430,7 +464,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(211).ListItem.Property(Plot)]</label>
@@ -449,7 +483,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,2)</onleft>
 						<onright>61</onright>
@@ -459,10 +493,10 @@
 						<focusposition>0</focusposition>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
+						<itemlayout width="187" height="282">
 							<control type="image">
-								<width>219</width>
-								<height>329</height>
+								<width>187</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -471,7 +505,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="219" height="329">
+						<focusedlayout width="187" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -480,8 +514,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>219</width>
-									<height>329</height>
+									<width>187</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -494,7 +528,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(121).ListItem.Label]</label>
@@ -504,7 +538,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
@@ -515,7 +549,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(121).ListItem.Property(Plot)]</label>
@@ -533,7 +567,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,3)</onleft>
 						<onright>61</onright>
@@ -542,10 +576,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
+						<itemlayout width="187" height="282">
 							<control type="image">
-								<width>219</width>
-								<height>329</height>
+								<width>187</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -554,7 +588,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="219" height="329">
+						<focusedlayout width="187" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -563,8 +597,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>219</width>
-									<height>329</height>
+									<width>187</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -577,7 +611,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(131).ListItem.Label]</label>
@@ -587,7 +621,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
@@ -598,7 +632,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(131).ListItem.Property(Plot)]</label>
@@ -616,7 +650,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,4)</onleft>
 						<onright>61</onright>
@@ -625,10 +659,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="219">
+						<itemlayout width="282" height="187">
 							<control type="image">
-								<width>329</width>
-								<height>219</height>
+								<width>282</width>
+								<height>187</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -637,7 +671,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="329" height="219">
+						<focusedlayout width="282" height="187">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -646,8 +680,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>329</width>
-									<height>219</height>
+									<width>282</width>
+									<height>187</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -660,7 +694,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(141).ListItem.Label]</label>
@@ -670,7 +704,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
@@ -681,7 +715,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(141).ListItem.Property(Plot)]</label>
@@ -699,7 +733,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,5)</onleft>
 						<onright>61</onright>
@@ -708,10 +742,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="219" height="329">
+						<itemlayout width="187" height="282">
 							<control type="image">
-								<width>219</width>
-								<height>329</height>
+								<width>187</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -720,7 +754,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="219" height="329">
+						<focusedlayout width="187" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -729,8 +763,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>219</width>
-									<height>329</height>
+									<width>187</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -743,7 +777,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(151).ListItem.Property(Artist)] • $INFO[Container(151).ListItem.Label]</label>
@@ -753,7 +787,7 @@
 						</control>
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<align>right</align>
@@ -764,7 +798,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(151).ListItem.Property(Plot)]</label>
@@ -782,7 +816,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,6)</onleft>
 						<onright>61</onright>
@@ -791,10 +825,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
+						<itemlayout width="282" height="282">
 							<control type="image">
-								<width>329</width>
-								<height>329</height>
+								<width>282</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -803,7 +837,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="329" height="329">
+						<focusedlayout width="282" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -812,8 +846,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>329</width>
-									<height>329</height>
+									<width>282</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -826,7 +860,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(161).ListItem.Label]</label>
@@ -836,7 +870,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(161).ListItem.Property(Artist_Description)]</label>
@@ -854,7 +888,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,7)</onleft>
 						<onright>61</onright>
@@ -863,10 +897,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
+						<itemlayout width="282" height="282">
 							<control type="image">
-								<width>329</width>
-								<height>329</height>
+								<width>282</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -875,7 +909,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="329" height="329">
+						<focusedlayout width="282" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -884,8 +918,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>329</width>
-									<height>329</height>
+									<width>282</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -898,7 +932,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(171).ListItem.Property(Artist)] • $INFO[Container(171).ListItem.Label]</label>
@@ -908,7 +942,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(171).ListItem.Property(Album_Description)]</label>
@@ -926,7 +960,7 @@
 						<left>0</left>
 						<top>0</top>
 						<width>1316</width>
-						<height>658</height>
+						<include>GS_List_height</include>
 						<pagecontrol>61</pagecontrol>
 						<onleft>Control.SetFocus(9000,8)</onleft>
 						<onright>61</onright>
@@ -935,10 +969,10 @@
 						<orientation>vertical</orientation>
 						<viewtype label="535">list</viewtype>
 						<preloaditems>2</preloaditems>
-						<itemlayout width="329" height="329">
+						<itemlayout width="282" height="282">
 							<control type="image">
-								<width>329</width>
-								<height>329</height>
+								<width>282</width>
+								<height>282</height>
 								<aspectratio>scale</aspectratio>
 								<texture background="true">$INFO[ListItem.Icon]</texture>
 								<fadetime>400</fadetime>
@@ -947,7 +981,7 @@
 								<colordiffuse>BAffffff</colordiffuse>
 							</control>
 						</itemlayout>
-						<focusedlayout width="329" height="329">
+						<focusedlayout width="282" height="282">
 							<control type="group">
 								<animation type="Focus">
 									<effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
@@ -956,8 +990,8 @@
 								<control type="image">
 									<left>0</left>
 									<top>0</top>
-									<width>329</width>
-									<height>329</height>
+									<width>282</width>
+									<height>282</height>
 									<aspectratio>scale</aspectratio>
 									<texture background="true">$INFO[ListItem.Icon]</texture>
 									<fadetime>400</fadetime>
@@ -970,7 +1004,7 @@
 					<control type="group">
 						<control type="label">
 							<left>0</left>
-							<top>670</top>
+							<include>GS_Info_top</include>
 							<width>1316</width>
 							<height>40</height>
 							<label>$INFO[Container(181).ListItem.Property(Artist)] • $INFO[Container(181).ListItem.Label]</label>
@@ -980,7 +1014,7 @@
 						</control>
 						<control type="textbox">
 							<left>15</left>
-							<top>720</top>
+							<include>GS_Plot_top</include>
 							<width>1286</width>
 							<height>116</height>
 							<label>$INFO[Container(181).ListItem.Property(Album)] ($INFO[Container(181).ListItem.Property(Year)])[CR]$INFO[Container(181).ListItem.Property(Genre)] • $INFO[Container(181).ListItem.Property(Duration)]</label>
@@ -995,7 +1029,7 @@
 				<left>1838</left>
 				<top>160</top>
 				<width>14</width>
-				<height>658</height>
+				<include>GS_List_height</include>
 				<onleft>111</onleft>
 				<onright>111</onright>
 				<ondown>61</ondown>

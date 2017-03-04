@@ -23,12 +23,13 @@ SCActivity_lowlights  = "<your simple control activity UUID>"
 SCActivity_movielights = "<your simple control activity UUID>"
 
 # capture Width & Height
-# 1080p 1920x1080 - 40x40pixel per captured pixel. 1920x1080 -> 48x27
-# 1038:1.85  960:2.0  817:2.35
-# each captured line represents 40 lines in the encoded image. aspect
-# ratio changes are in multiples of 40s
+# each captured pixel is 40wx20h of the screen pixel
+# 1920 x 1080 = 1.77
+# 1920 x 1038 = 1.85 (20) (line 0 dark)
+# 1920 x 960 = 2.0 (60) (line 0 - 2 dark)
+# 1920 x 817 = 2.35 (130) (line 0 - 5 dark)
 CaptureWidth = 48
-CaptureHeight = 27
+CaptureHeight = 54
 
 
 # subtitle vertical positions for aspect ratio
@@ -200,24 +201,29 @@ def GetAspectRatioFromFrame ():
         # is not dark
         while (True):
             __myimage = CaptureFrame()
-            __middleScreenDark = LineColorLessThan (__myimage, 4, 1, __threshold)
+            __middleScreenDark = LineColorLessThan (__myimage, 7, 2, __threshold)
             if __middleScreenDark == False:
                 xbmc.sleep (200)
                 break
             else:
                 xbmc.sleep (100)
-
+    
         # Capture another frame. after we have waited for transitions
         __myimage = CaptureFrame()
-        __imageLine0Dim = LineColorLessThan (__myimage, 0, 1, __threshold) # line 0, top of image
-        __imageLine1Dim = LineColorLessThan (__myimage, 1, 2, __threshold) # really line 1 & 2
+        __ar185 = LineColorLessThan (__myimage, 0, 1, __threshold)
+        __ar200 = LineColorLessThan (__myimage, 1, 3, __threshold)
+        __ar235 = LineColorLessThan (__myimage, 1, 5, __threshold)
         
-        if (__imageLine1Dim == True):
+        if (__ar235 == True):
             __aspectratio = 235
-        elif (__imageLine0Dim == True and __imageLine1Dim == False):
+
+elif (__ar200 == True):
+    __aspectratio = 200
+        
+        elif (__ar185 == True):
             __aspectratio = 185
 
-    return __aspectratio
+return __aspectratio
 
 ###############
 #

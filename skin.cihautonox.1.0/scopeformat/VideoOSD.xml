@@ -92,10 +92,7 @@
 					<width>100</width>
 					<height>100</height>
 					<font>-</font>
-                    <onclick>ActivateWindow(videobookmarks)</onclick>
-                    <!--
 					<onclick>RunScript(script.cihautonox.tools,test)</onclick>
-                     -->
 				</control>
 				<control type="button" id="701">
 					<texturefocus>osd/buttons/OSDAudioFO.png</texturefocus>

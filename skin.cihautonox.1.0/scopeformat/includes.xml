@@ -430,6 +430,60 @@
 			<texture border="40">listpanel_back.png</texture>
 		</control>
 	</include>
+	
+	<!-- Mods for GlobalSearch script -->
+	<!-- tmod -->
+	<include name="SystemLeftPanel2">
+		<control type="image">
+			<left>50</left>
+			<top>53</top>
+			<width>420</width>
+			<height>817</height>
+			<texture border="40">panel_reflect.png</texture>
+		</control>
+		<control type="image">
+			<left>50</left>
+			<top>50</top>
+			<width>420</width>
+			<height>817</height>
+			<texture border="40">listpanel_back.png</texture>
+		</control>
+	</include>
+	
+	<!-- tmod -->
+	<include name="SystemRightPanel2">
+		<control type="image">
+			<left>490</left>
+			<top>53</top>
+			<width>1380</width>
+			<height>817</height>
+			<texture border="40">panel_reflect.png</texture>
+		</control>
+		<control type="image">
+			<left>490</left>
+			<top>50</top>
+			<width>1380</width>
+			<height>817</height>
+			<texture border="40">listpanel_back.png</texture>
+		</control>
+	</include>
+	
+	<!-- Original height 658 -->
+	<include name="GS_List_height">
+	<height>600</height>
+	</include>
+
+	<!-- original 670 top of right panel movie title -->
+	<include name="GS_Info_top">
+	<top>608</top>
+	</include>
+	
+	<!-- original 720 GS Plot Top -->
+	<include name="GS_Plot_top">
+	<top>640</top>
+	</include>		
+	
+	
 	<!-- Extras -->
 	<include name="LoadTvTunes">
 		<onload condition="System.HasAddon(script.tvtunes) + !SubString(Window(10025).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
