@@ -176,7 +176,7 @@
 						<left>120</left>
 						<colordiffuse>white</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
 					</control>
 					<control type="image">
 						<left>1675</left>
@@ -302,7 +302,10 @@
 					<control type="image">
 						<left>230</left>
 						<include>MediaFlagVars</include>
+						<!-- MOD
 						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						-->
+						<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="image">
@@ -328,7 +331,7 @@
 					<control type="image">
 						<left>175</left>
 						<include>MediaFlagVars</include>
-						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="image">

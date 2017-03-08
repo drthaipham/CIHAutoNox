@@ -572,13 +572,16 @@
 							<height>90</height>
 							<texture border="1">separator3.png</texture>
 						</control>
+                        
+                        <!-- atmos here (MOD)-->
 						<control type="image">
 							<width>178</width>
 							<colordiffuse>grey</colordiffuse>
 							<include>MediaFlagVars</include>
-							<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+							<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
 							<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 						</control>
+                        
 						<control type="group">
 							<visible>Container.Content(tvshows) + !IsEmpty(ListItem.Property(TotalEpisodes))</visible>
 							<width>200</width>

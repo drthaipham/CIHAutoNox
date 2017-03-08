@@ -606,6 +606,7 @@
         <value condition="Container.Content(movies) + IsEmpty(ListItem.PlotOutline)">$INFO[ListItem.Tagline,[COLOR labelheader],[/COLOR] - ]$INFO[ListItem.Plot]</value>
         <value>$INFO[ListItem.Plot]</value>
 	</variable>
+    <!-- replaced file naming to tag aspect ratio with genre taging below: (MOD)
 	<variable name="AspectRatio">
         <value condition="SubString(ListItem.FileNameAndPath,1.33) | SubString(ListItem.FileNameAndPath,4-3)">1.33</value>
 		<value condition="SubString(ListItem.FileNameAndPath,1.37) | SubString(ListItem.FileNameAndPath,4-3)">1.37</value>
@@ -619,6 +620,36 @@
 		<value condition="SubString(ListItem.FileNameAndPath,2.76) | SubString(ListItem.FileNameAndPath,11-4)">2.76</value>
 		<value>$INFO[ListItem.VideoAspect]</value>
 	</variable>
+     -->
+    <!-- MOD add genre with: AR133, AR235, etc... -->
+    <variable name="AspectRatio">
+        <value condition="SubString(ListItem.Genre,AR133)">1.33</value>
+        <value condition="SubString(ListItem.Genre,AR137)">1.37</value>
+        <value condition="SubString(ListItem.Genre,AR166)">1.66</value>
+        <value condition="SubString(ListItem.Genre,AR178)">1.78</value>
+        <value condition="SubString(ListItem.Genre,AR185)">1.85</value>
+        <value condition="SubString(ListItem.Genre,AR220)">2.20</value>
+        <value condition="SubString(ListItem.Genre,AR235)">2.35</value>
+        <value condition="SubString(ListItem.Genre,AR240)">2.40</value>
+        <value condition="SubString(ListItem.Genre,AR255)">2.55</value>
+        <value condition="SubString(ListItem.Genre,AR276)">2.76</value>
+        <value>$INFO[ListItem.VideoAspect]</value>
+    </variable>
+    
+    <variable name="AudioCodecCustom">
+		<value condition="Substring(ListItem.Genre,dts-x) + Substring(ListItem.Genre,atmos)">atmos-dtsx</value>
+        <value condition="Substring(ListItem.Genre,dts-x)">dts-x</value>
+        <value condition="Substring(ListItem.Genre,atmos)">atmos</value>
+        <value>$INFO[ListItem.AudioCodec]</value>
+    </variable>
+	
+    <variable name="GSAudioCodecCustom">
+		<value condition="Substring(Container(111).ListItem.Property(Genre),dts-x) + Substring(Container(111).ListItem.Property(Genre),atmos)">atmos-dtsx</value>
+		<value condition="Substring(Container(111).ListItem.Property(Genre),dts-x)">dts-x</value>
+        <value condition="Substring(Container(111).ListItem.Property(Genre),atmos)">atmos</value>       
+        <value>$INFO[Container(111).ListItem.Property(AudioCodec)]</value>
+    </variable>	
+    
 	<variable name="AudioChannelCustom">
         <value condition="SubString(ListItem.FileNameAndPath,1.0)">1</value>
 		<value condition="SubString(ListItem.FileNameAndPath,2.0)">2</value>

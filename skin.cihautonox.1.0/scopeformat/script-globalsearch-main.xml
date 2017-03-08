@@ -347,10 +347,24 @@
 								<texture>$INFO[Container(111).ListItem.Property(VideoResolution),flags/resolution/,.png]</texture>
 							</control>
 							
+							<!-- <control type="image">
+								<colordiffuse>grey</colordiffuse>
+								<include>MediaFlagVars</include>
+								<texture>flags/audio/atmos.png</texture>
+								<visible>SubString(Container(111).ListItem.Property(Genre),atmos)</visible>
+							</control>
+							
 							<control type="image">
 								<colordiffuse>grey</colordiffuse>
 								<include>MediaFlagVars</include>
-								<texture>$INFO[Container(111).ListItem.Property(AudioCodec),flags/audio/,.png]</texture>
+								<texture>flags/audio/dts-x.png</texture>
+								<visible>SubString(Container(111).ListItem.Property(Genre),dts-x)</visible>
+							</control> -->
+							
+							<control type="image">
+								<colordiffuse>grey</colordiffuse>
+								<include>MediaFlagVars</include>
+								<texture>flags/audio/$VAR[GSAudioCodecCustom].png</texture>		
 							</control>
 							
 						</control>

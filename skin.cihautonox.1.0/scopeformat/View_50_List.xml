@@ -1190,7 +1190,7 @@
 						<left>217</left>
 						<colordiffuse>grey2</colordiffuse>
 						<include>MediaFlagVars</include>
-						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
+						<texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
 					<control type="image">
