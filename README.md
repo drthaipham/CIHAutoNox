@@ -5,6 +5,9 @@ Tested on Kodi 16.2
 This is a modified version of scope nox by funkd.. which is a modified version of AeonNox by BigNoid.
 Features:
 
+    - Can tag files with correct aspect ratio and audio codec: Atmos, DTS-X. in the .nfo file, add a genre containing:
+        atmos, dts-x, AR133, AR137, AR166, AR178, AR185, AR220, AR235, AR240, AR255, AR276 (** NOT CASE SENSITIVE **)
+        i.e. <genre>Dolby Atmos</genre>, or <genre>atmos AR235</genre>, or <genre>Atmos DTS-X</genre><genre>AR235</genre>
     - Mask (black out) areas outside of the specified aspect ratio.
     - Place the OSD and the Seekbar at the top and bottom of the screen
     - Automatically detect hardcoded black bars and calculate the aspect ratio of the playing video.
