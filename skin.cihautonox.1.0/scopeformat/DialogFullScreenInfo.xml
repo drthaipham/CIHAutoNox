@@ -16,7 +16,7 @@
             <animation effect="slide" start="0,0" end="0,-80" time="700" condition="Skin.HasSetting(osd200)">Conditional</animation>
             <animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(osd235)">Conditional</animation>
             
-            
+            /Users/Dad/Desktop/Docs/platform-tools/CIHAutoNox-Home/skin.cihautonox.1.0/scopeformat/variables.xml
             <!--
              <animation effect="slide" start="0,0" end="0,-10" time="700" condition="Skin.HasSetting(scopeFormat235)">Conditional</animation>
              <animation effect="slide" start="0,0" end="0,-130" time="700" condition="Skin.HasSetting(osd169) + Skin.HasSetting(scopeFormat235)">Conditional</animation>
@@ -83,7 +83,10 @@
 					<width>320</width>
 					<colordiffuse>grey2</colordiffuse>
 					<include>MediaFlagVars</include>
+                    <!--
 					<texture>$INFO[VideoPlayer.AudioCodec,flags/audio/,.png]</texture>
+                     -->
+                    <texture>flags/audio/$VAR[VideoPlayerAudioCodec].png</texture>
 				</control>
 				<control type="image">
 					<width>320</width>

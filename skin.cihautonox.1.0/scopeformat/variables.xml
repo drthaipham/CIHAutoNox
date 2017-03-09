@@ -648,7 +648,15 @@
 		<value condition="Substring(Container(111).ListItem.Property(Genre),dts-x)">dts-x</value>
         <value condition="Substring(Container(111).ListItem.Property(Genre),atmos)">atmos</value>       
         <value>$INFO[Container(111).ListItem.Property(AudioCodec)]</value>
-    </variable>	
+    </variable>
+    
+    <!-- mod untested variable -->
+    <variable name="VideoPlayerAudioCodec">
+        <value condition="Substring(VideoPlayer.Genre,dts-x) + Substring(VideoPlayer.Genre,atmos)">atmos-dtsx</value>
+        <value condition="Substring(VideoPlayer.Genre,dts-x)">dts-x</value>
+        <value condition="Substring(VideoPlayer.Genre,atmos)">atmos</value>
+        <value>$INFO[VideoPlayer.AudioCodec]</value>
+    </variable>
     
 	<variable name="AudioChannelCustom">
         <value condition="SubString(ListItem.FileNameAndPath,1.0)">1</value>
@@ -661,7 +669,22 @@
 		<value condition="SubString(ListItem.FileNameAndPath,7.1)">8</value>
 		<value>$INFO[ListItem.AudioChannels]</value>
 	</variable>
-	
+    
+    <!-- mod untested variable -->
+    <variable name="VideoPlayerAspectRatio">
+        <value condition="SubString(VideoPlayer.Genre,AR133)">1.33</value>
+        <value condition="SubString(VideoPlayer.Genre,AR137)">1.37</value>
+        <value condition="SubString(VideoPlayer.Genre,AR166)">1.66</value>
+        <value condition="SubString(VideoPlayer.Genre,AR178)">1.78</value>
+        <value condition="SubString(VideoPlayer.Genre,AR185)">1.85</value>
+        <value condition="SubString(VideoPlayer.Genre,AR220)">2.20</value>
+        <value condition="SubString(VideoPlayer.Genre,AR235)">2.35</value>
+        <value condition="SubString(VideoPlayer.Genre,AR240)">2.40</value>
+        <value condition="SubString(VideoPlayer.Genre,AR255)">2.55</value>
+        <value condition="SubString(VideoPlayer.Genre,AR276)">2.76</value>
+        <value>$INFO[VideoPlayer.VideoAspect]</value>
+    </variable>
+	<!--
 	<variable name="VideoPlayerAspectRatio">
         <value condition="SubString(Player.Filenameandpath,1.33) | SubString(Player.Filenameandpath,4-3)">1.33</value>
 		<value condition="SubString(Player.Filenameandpath,1.37) | SubString(Player.Filenameandpath,4-3)">1.37</value>
@@ -675,4 +698,5 @@
 		<value condition="SubString(Player.Filenameandpath,2.76) | SubString(Player.Filenameandpath,11-4)">2.76</value>
 		<value>$INFO[VideoPlayer.VideoAspect]</value>
 	</variable>
+    -->
 </includes>

@@ -175,6 +175,10 @@
 						<label>$VAR[SourceFlagVar]</label>
 						<visible>false</visible>
 					</control>
+                    <control type="label" id="9904">
+                        <label>$VAR[AudioCodecCustom]</label>
+                        <visible>false</visible>
+                    </control>
 
 					<control type="image">
 						<width>90</width>
@@ -184,6 +188,9 @@
 						</texture>
 						<visible>!IsEmpty(ListItem.VideoResolution)</visible>
 					</control>
+					
+					<!-- atmos, dts-x -->
+					<!--
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
@@ -191,6 +198,15 @@
 						<texture>$INFO[ListItem.AudioCodec,flags/audio/,.png]</texture>
 						<visible>!IsEmpty(ListItem.AudioCodec)</visible>
 					</control>
+					-->
+                    <control type="image">
+                        <width>90</width>
+                        <colordiffuse>grey</colordiffuse>
+                        <include>MediaFlagVars</include>
+                        <texture>flags/audio/$VAR[AudioCodecCustom].png</texture>
+                        <visible>!IsEmpty(ListItem.AudioCodec)</visible>
+                    </control>
+                    
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
@@ -198,6 +214,9 @@
 						<texture>flags/channels/$VAR[AudioChannelCustom].png</texture>
 						<visible>!IsEmpty(Control.GetLabel(9902))</visible>
 					</control>
+					
+					<!-- end atmos, dts-x -->
+					
 					<control type="image">
 						<width>90</width>
 						<colordiffuse>grey</colordiffuse>
