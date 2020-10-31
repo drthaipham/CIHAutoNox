@@ -1,6 +1,7 @@
 # CIHAutoNox
 
 Tested on Kodi 16.2
+*** Some assembly required. Not a Plug and Play Solution *** 
 
 This is a modified version of scope nox by funkd.. which is a modified version of AeonNox by BigNoid.
 Features:
@@ -43,6 +44,40 @@ This version of the skin contains all the GUI within an 800/820 pixel height.
     Event 2: On PlaybackStopped - Task2 (so we can remove the 1.33 side masks for the gui)<br>
 <br>
 5) Play a file and (hopefully) watch the magic happens.
+
+******************
+** How It Works **
+******************
+The script cihAutonox takes the following arguments:
+    - autoaspect
+        detects the aspect ratio of the video playing in Kodi, then opens a url depending on the detected aspect ratio. (url is specified in the source code)
+    - 133Stop
+        detects the aspect ratio of the video playing in Kodi. If it's a 1.33 aspect ratio, opens the url associated with changing the projector / masking setting
+        to 1.69. Kodi interface is in 16:9 aspect ratio. This allows the Kodi interface to be shown without being cropped on the sides.
+    - please see the source codes for the other arguments. It's not a big script.
+    
+How aspect ratio is detected: Screen capture and detect the black bars in the image. Like the ambient light plugins for Kodi.
+
+************************************************************
+** Changing your projector / Masking system aspect ratios **
+************************************************************
+1) Use a projector that allows you to set presets for different zoom settings.
+    a) establish the following presets: 2.35 (or 2.39), 2.0, 1.85, 1.78
+    b) some projectors also have a masking settings where you can force pixels to black
+2) Use a remote control that you can trigger via ip commands (Ideally by opening a url.)
+    a) Set up your remote control activities to switch your projectors to 2.35, 2.0, 1.85, 1.78
+    I use "Simple Control." it was called Roomie Remote before
+3) Change the source code
+    a) function SCRunActivity opens the url
+    b) variables:   SCCommand = 'http://<your simplecontrol hub ip address>:47147/api/v1/runactivity' 
+                    SCActivity_widescreen = "<your simple control activity UUID>"
+                    SCActivity_20screen   = "<your simple control activity UUID>"
+                    SCActivity_185screen  = "<your simple control activity UUID>"
+                    SCActivity_169screen  = "<your simple control activity UUID>"
+                    SCActivity_133screen  = "<your simple control activity UUID>"
+                    SCActivity_lowlights  = "<your simple control activity UUID>"
+                    SCActivity_movielights = "<your simple control activity UUID>"
+
 
 ***********************************************************************
 ** changing the projector zoom settings with the aspect ratio change **
